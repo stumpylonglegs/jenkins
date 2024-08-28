@@ -27,7 +27,7 @@ pipeline{
                 echo "test will be done in enviroment $TESTING_ENVIRONMENT"
             }
         }
-        stage("integration tests and staging"){
+        stage("Integration tests and staging"){
             steps{
                 sleep 10
                 echo "approval started and completed!"
