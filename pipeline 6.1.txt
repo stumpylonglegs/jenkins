@@ -19,7 +19,7 @@ pipeline{
                     mail to: "alexjreid15@gmail.com",
                     subject: "build status email",
                     body: "build was successfull",
-                    attachmentsPattern: "build.log"
+                    
                 }
             }
         stage("code analysis"){
@@ -39,7 +39,7 @@ pipeline{
                     mail to: "alexjreid15@gmail.com",
                     subject: "build status email",
                     body: "build was successfull",
-                    attachmentsPattern: "build.log"
+                    
                 }
             }
 
