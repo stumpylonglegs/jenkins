@@ -77,7 +77,7 @@ pipeline{
                         to: "alexjreid15@gmail.com",
                         subject: "Build Status Email",
                         body: "The build was successful. Please find the log attached.",
-                        attachmentsPattern: 'build.log'
+                        attachmentsPattern: 'build.log')
                 }
             }
         }
