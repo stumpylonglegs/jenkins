@@ -1,42 +1,54 @@
 pipeline{
     agent any
-    environment {
-        DIRECTORY_PATH= "/var/jenkins_home/workspace/pipeline 5.1"
-        TESTING_ENVIRONMENT= "jenkins enviroment"
-        PRODUCTION_ENVIRONMENT= "Alexander reid"
-    }
+    
     stages{
+        stage("build"){
+            steps{
+                echo "we use Maven to help build and compile java based programs to help keep a streamlined developpment process   "
+            }
+        }
         stage("unit and integration tests"){
             steps{
-                echo "$DIRECTORY_PATH, "
+                echo "we will use JUnit to test our code for any errors and intergration errors as well "
             }
         }
         stage("code analysis"){
             steps{
-                echo "unit tasts"
-                echo "integration tests"
+                echo "we will use sonarqube to help analyse our code further and make sure it meets industry standards"
+              
             }
         }
         stage("security scan"){
             steps{
-                echo "check the quality of the code"
+                echo "sonarqube can also perform the security tests and  vulnerabilities "
             }
+            post
+            {
+                success
+                {
+                    mail to: "alexjreid15@gmail.com",
+                    subject: "build status email",
+                    body: "build was successfull"
+                }
+            }
+
+
         }
         stage("Deploy to staging"){
             steps{
-                echo "test will be done in enviroment $TESTING_ENVIRONMENT"
+                echo "deploying to staging server AWS EC2 instence"
             }
         }
         stage("Integration tests and staging"){
             steps{
                 sleep 10
-                echo "approval started and completed!"
+                echo "integration tests on staging, running tests to make sure it works like in production"
             }
         }
         stage("deploy to production"){
             steps{
-                echo " deployijng to enviroment $PRODUCTION_ENVIRONMENT"
-                echo "deploy for production started and completed!"
+                echo " deployijng to  production server AWS EC2 instance"
+               
             }
         }
         
