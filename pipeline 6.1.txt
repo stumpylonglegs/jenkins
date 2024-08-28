@@ -65,6 +65,7 @@ pipeline{
             {
                 always
                 {
+                    def logFile = new File("/var/jenkins_home/jobs/6.1/builds/build.log")
                     archiveArtifacts artifacts: 'build.log', allowEmptyArchive: true
                    emailext (
                                 to: "alexjreid15@gmail.com",
