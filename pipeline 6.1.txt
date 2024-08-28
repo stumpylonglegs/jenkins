@@ -11,8 +11,7 @@ pipeline{
             steps{
                 echo "we will use JUnit to test our code for any errors and intergration errors as well "
             }
-        }
-        post
+             post
             {
                 success
                 {
@@ -22,6 +21,8 @@ pipeline{
                     
                 }
             }
+        }
+       
         stage("code analysis"){
             steps{
                 echo "we will use sonarqube to help analyse our code further and make sure it meets industry standards"
@@ -61,8 +62,7 @@ pipeline{
                 echo " deployijng to  production server AWS EC2 instance"
                
             }
-        }
-        post
+             post
             {
                 always
                 {
@@ -75,6 +75,8 @@ pipeline{
                     attachmentsPattern: "log"
                 }
             }
+        }
+       
         
     }
 }
