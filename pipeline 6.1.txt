@@ -69,12 +69,12 @@ pipeline{
                    
 
 
-                   emailext {
-                                mail to: "alexjreid15@gmail.com",
+                   emailext (
+                                to: "alexjreid15@gmail.com",
                                 subject: "build status email",
                                 body: "build was successfull"
                                 attachmentsPattern: 'log' 
-                                }
+                                )
                     
                     
                 }
