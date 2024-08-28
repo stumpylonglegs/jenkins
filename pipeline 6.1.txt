@@ -61,7 +61,7 @@ pipeline{
             steps{
                 echo " deploying to  production server AWS EC2 instance"     
          script {
-                    def logFile = new File("${env.WORKSPACE}/build.log")
+                    def logFile = new File("/var/jenkins_home/jobs/6.1/builds/build.log")
                     logFile.write(currentBuild.rawBuild.getLog(10000).join('\n'))
                 }
             }
