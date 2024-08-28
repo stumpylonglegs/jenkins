@@ -60,24 +60,20 @@ pipeline{
         stage("deploy to production"){
             steps{
                 echo " deploying to  production server AWS EC2 instance"     
-         script {
-                    def logFile = new File("/var/jenkins_home/jobs/6.1/builds/build.log")
-                    logFile.write(currentBuild.rawBuild.getLog(10000).join('\n'))
-                }
+        
             }
              post
             {
                 always
                 {
-                    // Archive the log file from the workspace
-                    archiveArtifacts artifacts: 'build.log', allowEmptyArchive: true
+                   
+                  
 
-                    // Send email with the archived log file as an attachment
                     emailext (
                         to: "alexjreid15@gmail.com",
                         subject: "Build Status Email",
                         body: "The build was successful. Please find the log attached.",
-                        attachmentsPattern: 'build.log')
+                        attachmentsPattern: '**/log.log')
                 }
             }
         }
