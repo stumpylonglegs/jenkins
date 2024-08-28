@@ -69,7 +69,7 @@ pipeline{
                                 to: "alexjreid15@gmail.com",
                                 subject: "build status email",
                                 body: "build was successfull",
-                                attachmentsPattern: '/var/jenkins_home/jobs/6.1/builds/15/log' 
+                                attachmentsPattern: '**/log' 
                                 )           
                 }
             }
