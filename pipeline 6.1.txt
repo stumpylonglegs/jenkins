@@ -65,11 +65,12 @@ pipeline{
             {
                 always
                 {
+                    archiveArtifacts artifacts: 'build.log', allowEmptyArchive: true
                    emailext (
                                 to: "alexjreid15@gmail.com",
                                 subject: "build status email",
                                 body: "build was successfull",
-                                attachmentsPattern: '**/var/jenkins_home/jobs/6.1/builds/33/log' 
+                                attachmentsPattern: '*build.log' 
                                 )           
                 }
             }
