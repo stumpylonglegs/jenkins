@@ -1,0 +1,44 @@
+pipeline{
+    agent any
+    environment {
+        DIRECTORY_PATH= "/var/jenkins_home/workspace/pipeline 5.1"
+        TESTING_ENVIRONMENT= "jenkins enviroment"
+        PRODUCTION_ENVIRONMENT= "Alexander reid"
+    }
+    stages{
+        stage("unit and integration tests"){
+            steps{
+                echo "$DIRECTORY_PATH, "
+            }
+        }
+        stage("code analysis"){
+            steps{
+                echo "unit tasts"
+                echo "integration tests"
+            }
+        }
+        stage("security scan"){
+            steps{
+                echo "check the quality of the code"
+            }
+        }
+        stage("Deploy to staging"){
+            steps{
+                echo "test will be done in enviroment $TESTING_ENVIRONMENT"
+            }
+        }
+        stage("integration tests and staging"){
+            steps{
+                sleep 10
+                echo "approval started and completed!"
+            }
+        }
+        stage("deploy to production"){
+            steps{
+                echo " deployijng to enviroment $PRODUCTION_ENVIRONMENT"
+                echo "deploy for production started and completed!"
+            }
+        }
+        
+    }
+}
