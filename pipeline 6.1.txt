@@ -66,7 +66,7 @@ pipeline{
             {
                 always
                 {
-                    def logFile = new File("${env.WORKSPACE}/build.log")
+                   
 
 
                     mail to: "alexjreid15@gmail.com",
