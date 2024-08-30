@@ -66,18 +66,12 @@ pipeline {
             }
             post {
                 always {
-                    
-                       // def logFile = 'log.txt'
-                        // Make sure the file is generated and available in the workspace
-                        
-                            emailext (
-                                to: "alexjreid15@gmail.com",
-                                subject: "Build Status Email",
-                                body: "The build was successful. Please find the log attached.",
-                                attachlog: true
-                            )
-                         
-                    
+                    emailext (
+                        to: "alexjreid15@gmail.com",
+                        subject: "Build Status Email",
+                        body: "The build was successful. Please find the log attached.",
+                        attachLog: true
+                    )
                 }
             }
         }
