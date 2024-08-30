@@ -66,18 +66,13 @@ pipeline {
             }
             post {
                 always {
-                    script {
-                        def logFile = 'log.txt'
-                      
-                       emailext (
+                   
+                            emailext (
                                 to: "alexjreid15@gmail.com",
                                 subject: "Build Status Email",
                                 body: "The build was successful, but log.txt was not found."
                                 attachmlogLog: true
                             )
-                            
-                        } 
-                            
                         
                     }
                 }
