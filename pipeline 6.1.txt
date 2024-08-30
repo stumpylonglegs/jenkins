@@ -5,14 +5,14 @@ pipeline {
         stage("Build") {
             steps {
                 echo "We use Maven to build and compile Java-based programs to help keep a streamlined development process."
-                // Add Maven build commands here if needed, e.g., sh 'mvn clean install'
+              
             }
         }
         
         stage("Unit and Integration Tests") {
             steps {
                 echo "We will use JUnit to test our code for any errors and integration errors as well."
-                // Add JUnit test execution commands here if needed
+              
             }
             post {
                 success {
@@ -26,14 +26,14 @@ pipeline {
         stage("Code Analysis") {
             steps {
                 echo "We will use SonarQube to analyze our code further and ensure it meets industry standards."
-                // Add SonarQube analysis commands here if needed
+              
             }
         }
         
         stage("Security Scan") {
             steps {
                 echo "SonarQube can also perform security tests and vulnerability checks."
-                // Add SonarQube security scan commands here if needed
+               
             }
             post {
                 success {
@@ -47,7 +47,7 @@ pipeline {
         stage("Deploy to Staging") {
             steps {
                 echo "Deploying to staging server AWS EC2 instance."
-                // Add deployment commands here if needed
+              
             }
         }
         
@@ -55,14 +55,14 @@ pipeline {
             steps {
                 sleep 10
                 echo "Running integration tests on staging to ensure it works like in production."
-                // Add integration test commands here if needed
+              
             }
         }
         
         stage("Deploy to Production") {
             steps {
                 echo "Deploying to production server AWS EC2 instance."
-                // Add deployment commands here if needed
+              
             }
             post {
                 always {
