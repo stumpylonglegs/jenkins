@@ -66,25 +66,18 @@ pipeline {
             }
             post {
                 always {
-                    script {
-                        def logFile = 'log.txt'
+                    
+                       // def logFile = 'log.txt'
                         // Make sure the file is generated and available in the workspace
-                        if (fileExists(logFile)) {
+                        
                             emailext (
                                 to: "alexjreid15@gmail.com",
                                 subject: "Build Status Email",
                                 body: "The build was successful. Please find the log attached.",
                                 attachlog: true
                             )
-                        } else {
-                            emailext (
-                                to: "alexjreid15@gmail.com",
-                                subject: "Build Status Email",
-                                body: "The build was successful, but log.txt was not found."
-                                attachlog: true
-                            )
-                        }
-                    }
+                         
+                    
                 }
             }
         }
