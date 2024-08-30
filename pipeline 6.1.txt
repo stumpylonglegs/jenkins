@@ -16,9 +16,12 @@ pipeline {
             }
             post {
                 success {
-                    mail to: "alexjreid15@gmail.com",
-                         subject: "Build Status Email",
-                         body: "Build was successful."
+                    emailext (
+                        to: "alexjreid15@gmail.com",
+                        subject: "Build Status Email",
+                        body: "The build was successful. Please find the log attached.",
+                        attachLog: true
+                    )
                 }
             }
         }
@@ -37,9 +40,12 @@ pipeline {
             }
             post {
                 success {
-                    mail to: "alexjreid15@gmail.com",
-                         subject: "Build Status Email",
-                         body: "Build was successful."
+                    emailext (
+                        to: "alexjreid15@gmail.com",
+                        subject: "Build Status Email",
+                        body: "The build was successful. Please find the log attached.",
+                        attachLog: true
+                    )
                 }
             }
         }
