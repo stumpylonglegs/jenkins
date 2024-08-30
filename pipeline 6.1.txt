@@ -5,7 +5,7 @@ pipeline {
         stage("Build") {
             steps {
                 echo "We use Maven to build and compile Java-based programs to help keep a streamlined development process."
-                // Add Maven build commands here if needed
+                // Add Maven build commands here if needed, e.g., sh 'mvn clean install'
             }
         }
         
@@ -68,15 +68,22 @@ pipeline {
                 always {
                     script {
                         def logFile = 'log.txt'
+                        // Make sure the file is generated and available in the workspace
                         if (fileExists(logFile)) {
                             emailext (
                                 to: "alexjreid15@gmail.com",
                                 subject: "Build Status Email",
                                 body: "The build was successful. Please find the log attached.",
-                                attachmentsPattern: logFile
+                                attachlog: true
+                            )
+                        } else {
+                            emailext (
+                                to: "alexjreid15@gmail.com",
+                                subject: "Build Status Email",
+                                body: "The build was successful, but log.txt was not found."
+                                attachlog: true
                             )
                         }
-                        // No else block to handle case when logFile is not found
                     }
                 }
             }
