@@ -69,20 +69,16 @@ pipeline {
                     script {
                         def logFile = 'log.txt'
                       
-                        if (fileExists(logFile)) {
-                            emailext (
-                                to: "alexjreid15@gmail.com",
-                                subject: "Build Status Email",
-                                body: "The build was successful. Please find the log attached.",
-                                attachmentsPattern: logFile.txt
-                            )
-                        } else {
-                            emailext (
+                       emailext (
                                 to: "alexjreid15@gmail.com",
                                 subject: "Build Status Email",
                                 body: "The build was successful, but log.txt was not found."
+                                attachmlogLog: true
                             )
-                        }
+                            
+                        } 
+                            
+                        
                     }
                 }
             }
